@@ -1,16 +1,13 @@
-// screens/RegisterScreen.js
 import React, { useState } from 'react';
 import {
   View, Text, TextInput, TouchableOpacity, StyleSheet, Alert
 } from 'react-native';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
-import { useNavigation } from '@react-navigation/native';
 
-export default function RegisterScreen() {
+export default function RegisterScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [sifre, setSifre] = useState('');
-  const navigation = useNavigation();
 
   const handleRegister = async () => {
     if (!email || !sifre) {
@@ -23,7 +20,6 @@ export default function RegisterScreen() {
       Alert.alert("Başarılı", "Kayıt başarılı!");
       navigation.replace('Home');
     } catch (error) {
-      console.log("Kayıt Hatası:", error);
       Alert.alert("Hata", error.message || "Kayıt başarısız.");
     }
   };

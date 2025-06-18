@@ -1,15 +1,16 @@
 import { initializeApp, getApps } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 import { getAuth } from 'firebase/auth';
+import Constants from 'expo-constants';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBk5zZ4tgnNwrcFzMqtfQbml8qpsZ-4EaM",
-  authDomain: "nakliye-app-18e20.firebaseapp.com",
-  databaseURL: "https://nakliye-app-18e20-default-rtdb.firebaseio.com",
-  projectId: "nakliye-app-18e20",
-  storageBucket: "nakliye-app-18e20.appspot.com",
-  messagingSenderId: "656861628891",
-  appId: "1:656861628891:web:788f22b2a5b640a6e13ffe"
+  apiKey: Constants.expoConfig.extra.firebaseApiKey,
+  authDomain: Constants.expoConfig.extra.firebaseAuthDomain,
+  databaseURL: Constants.expoConfig.extra.firebaseDatabaseURL,
+  projectId: Constants.expoConfig.extra.firebaseProjectId,
+  storageBucket: Constants.expoConfig.extra.firebaseStorageBucket,
+  messagingSenderId: Constants.expoConfig.extra.firebaseMessagingSenderId,
+  appId: Constants.expoConfig.extra.firebaseAppId
 };
 
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];

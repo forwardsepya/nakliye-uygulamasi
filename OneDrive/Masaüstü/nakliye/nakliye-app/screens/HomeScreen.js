@@ -22,9 +22,6 @@ export default function HomeScreen() {
   const [modalVisible, setModalVisible] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    console.log("🏠 HomeScreen yüklendi");
-  }, []);
 
   useEffect(() => {
     (async () => {

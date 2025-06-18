@@ -9,16 +9,12 @@ import {
 } from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
-import { useNavigation } from '@react-navigation/native';
 
-export default function LoginScreen() {
+export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [sifre, setSifre] = useState('');
-  const navigation = useNavigation();
 
   const handleLogin = async () => {
-    console.log("Butona tıklandı, login fonksiyonu çağrıldı."); // TEST SATIRI
-
     if (!email || !sifre) {
       Alert.alert("Uyarı", "Lütfen tüm alanları doldurun.");
       return;
